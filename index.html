@@ -1,489 +1,203 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Chip | Transmisión Neural</title>
-    <!-- Carga de Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* ================================================= */
-        /* PALETA FUTURAMA (ADAPTADA) */
-        /* --dark-teal: #1a4340; (Base/Fondo) */
-        /* --medium-green: #4c9f70; (Botones/Énfasis) */
-        /* --vibrant-red: #d62828; (Alertas/Acción) */
-        /* --light-green: #a5d6a7; (Neon/Brillo) */
-        /* ================================================= */
-        @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Inter:wght@400;700;900&display=swap');
-        
-        body {
-            /* Fondo ligeramente radial para profundidad */
-            background: radial-gradient(circle at center, #1a4340 0%, #0d2725 100%);
-            color: #f5f5f5; 
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* TEXTO NEON ADAPTADO */
-        .neon-text {
-            /* Brillo combinado: Verde Claro + Rojo Vibrante */
-            text-shadow: 0 0 8px #a5d6a7, 0 0 20px #d62828;
-            font-family: 'Major Mono Display', monospace;
-        }
-
-        /* HOLO CHIP - ELEMENTO 3D */
-        .holo-chip {
-            width: 220px;
-            height: 220px;
-            border-radius: 20px;
-            /* Fondo translúcido con los colores de la paleta */
-            background: linear-gradient(145deg, rgba(165,214,167,0.1), rgba(214,40,40,0.15));
-            border: 2px solid rgba(165,214,167,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            perspective: 800px;
-            animation: rotate3D 10s infinite linear, pulse 3s infinite alternate;
-            /* Sombra principal con color de énfasis */
-            box-shadow: 0 0 30px rgba(165,214,167,0.5); 
-            backdrop-filter: blur(4px);
-            margin: 0 auto;
-        }
-        @keyframes rotate3D {
-            from { transform: rotateY(0deg) rotateX(0deg); }
-            to { transform: rotateY(360deg) rotateX(15deg); }
-        }
-        @keyframes pulse {
-            /* Brillo de los colores de Futurama */
-            0% { box-shadow: 0 0 20px rgba(165,214,167,0.3); } 
-            100% { box-shadow: 0 0 50px rgba(214,40,40,0.7); } 
-        }
-
-        /* TARJETAS/PANELES DE UI */
-        .panel-futurama {
-            background: rgba(26,67,64,0.7); /* Teal oscuro semi-transparente */
-            border: 4px solid #4c9f70; /* Borde verde medio */
-            box-shadow: 0 0 15px #4c9f70; /* Brillo suave */
-        }
-        .career-card {
-            background: rgba(26,67,64,0.6); 
-            border: 1px solid #4c9f70;
-            border-radius: 0.8rem;
-            padding: 1rem;
-            margin: 0.5rem;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Botones de Acción (Rojo Vibrante) */
-        .btn-action {
-            background-color: #d62828; /* Rojo Vibrante */
-            transition: all 0.2s;
-            text-shadow: 1px 1px 0 #000;
-            font-weight: 900; 
-            font-family: 'Inter', sans-serif;
-        }
-        .btn-action:hover:not(:disabled) {
-            background-color: #b71c1c;
-            box-shadow: 0 0 10px #d62828;
-            transform: translateY(-2px);
-        }
-        
-        /* Estilo para las "Huellas Digitales" (Escala 1-5) */
-        .finger-print {
-            background-color: #4c9f70; /* Verde Medio */
-            border: 2px solid #a5d6a7;
-            color: #1a4340; /* Texto oscuro en fondo claro */
-            transition: all 0.2s;
-            cursor: pointer;
-            min-height: 48px; /* Tamaño táctil obligatorio para móvil */
-            font-family: 'Major Mono Display', monospace;
-        }
-        .finger-print:hover {
-            background-color: #a5d6a7;
-        }
-        /* Estado pulsado/seleccionado */
-        .scale-option:checked + .finger-print {
-            background-color: #d62828; /* Rojo pulsado */
-            color: #f5f5f5;
-            box-shadow: 0 0 10px #d62828;
-            border-color: #f5f5f5;
-            transform: scale(1.05);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Chip - Asesor Vocacional Futurista</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at center, #0a0a0f 0%, #000000 100%);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    .neon-text {
+      text-shadow: 0 0 8px #00ffff, 0 0 20px #ff00ff;
+    }
+    .holo-chip {
+      width: 220px;
+      height: 220px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(0,255,255,0.1), rgba(255,0,255,0.15));
+      border: 2px solid rgba(0,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 800px;
+      animation: rotate3D 10s infinite linear, pulse 3s infinite alternate;
+      box-shadow: 0 0 30px rgba(0,255,255,0.5);
+      backdrop-filter: blur(4px);
+      margin: 0 auto;
+    }
+    @keyframes rotate3D {
+      from { transform: rotateY(0deg) rotateX(0deg); }
+      to { transform: rotateY(360deg) rotateX(15deg); }
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 20px rgba(0,255,255,0.3); }
+      100% { box-shadow: 0 0 50px rgba(255,0,255,0.7); }
+    }
+    .question-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .career-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 0.8rem;
+      padding: 1rem;
+      margin: 0.5rem;
+    }
+    .glow {
+      box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    }
+  </style>
 </head>
-<body class="min-h-screen p-3 sm:p-8">
+<body class="text-center p-4">
 
-    <div id="app-container" class="max-w-4xl mx-auto flex flex-col space-y-4">
-        
-        <!-- Título Global -->
-        <h1 class="text-4xl sm:text-5xl font-extrabold title-futurama mb-2 text-center pb-2 neon-text">
-            💠 CAREER CHIP 💠
-        </h1>
-        <p class="text-[#a5d6a7] mb-6 text-center text-sm sm:text-lg">
-            Sistema de Evaluación P.A.T. (Personalidad, Actitud, Técnica)
-        </p>
+  <h1 class="text-4xl neon-text font-bold mt-4">💠 Career Chip 💠</h1>
+  <p class="text-gray-400 mb-6">Sistema Vocacional Futurista - Inspirado en Futurama</p>
 
-        <!-- Fase 0: Pantalla de Bienvenida -->
-        <div id="welcome-screen" class="p-6 sm:p-10 panel-futurama rounded-2xl transition-all duration-500">
-            <div class="text-sm font-semibold text-[#f5f5f5] mb-8 text-center border-l-4 border-[#d62828] pl-3 py-2 bg-[#1a4340] rounded-xl shadow-md">
-                <span class="font-bold text-[#d62828]">PROTOCOLO L.O.T.:</span> Identificación de Ruta Crítica y Alternativas.
+  <div id="app"></div>
+
+  <script>
+    const app = document.getElementById("app");
+    let step = 0;
+    const respuestas = [];
+
+    const preguntas = [
+      {cat:"P", txt:"¿Prefieres trabajar solo o en equipo? (1=solo, 5=equipo)"},
+      {cat:"P", txt:"¿Eres una persona creativa o analítica? (1=analítica, 5=creativa)"},
+      {cat:"A", txt:"¿Te consideras líder en proyectos grupales?"},
+      {cat:"A", txt:"¿Cómo manejas el estrés en momentos difíciles?"},
+      {cat:"T", txt:"¿Te resulta fácil resolver problemas matemáticos o lógicos?"},
+      {cat:"T", txt:"¿Te interesa el uso de tecnología o inteligencia artificial?"},
+      {cat:"P", txt:"¿Eres organizado con tu tiempo y tareas?"},
+      {cat:"A", txt:"¿Te adaptas fácilmente a cambios o imprevistos?"},
+      {cat:"T", txt:"¿Disfrutas analizar datos o buscar patrones?"},
+      {cat:"A", txt:"¿Te gusta colaborar ayudando a otros?"},
+      {cat:"P", txt:"¿Sueles tomar riesgos o prefieres lo seguro?"},
+      {cat:"T", txt:"¿Te interesa entender cómo funcionan las cosas a nivel técnico?"},
+      {cat:"A", txt:"¿Te gusta aprender de tus errores y mejorar?"},
+      {cat:"P", txt:"¿Te motivan los retos intelectuales?"},
+      {cat:"T", txt:"¿Eres bueno comprendiendo textos complejos o teorías?"}
+    ];
+
+    const CARRERAS_LATAM = [
+      {id:1, nombre:"Ingeniería de Software", descripcion_breve:"Diseño y desarrollo de aplicaciones inteligentes y sistemas informáticos.", perfil:"Empresas tecnológicas, startups, inteligencia artificial, automatización.", requerimientos_ideales:{P:3,A:3,T:5}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:2, nombre:"Medicina", descripcion_breve:"Diagnóstico, tratamiento y prevención de enfermedades.", perfil:"Hospitales, investigación, salud pública, biotecnología.", requerimientos_ideales:{P:4,A:5,T:4}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"No"},
+      {id:3, nombre:"Arquitectura", descripcion_breve:"Diseño de espacios funcionales, sostenibles y estéticamente innovadores.", perfil:"Urbanismo, diseño interior, construcción, planificación territorial.", requerimientos_ideales:{P:4,A:3,T:4}, empleabilidad_latam:"Media", alerta_reemplazo_ia:"Parcial"},
+      {id:4, nombre:"Psicología", descripcion_breve:"Estudio del comportamiento humano y sus procesos mentales.", perfil:"Clínica, organizacional, educativa, forense.", requerimientos_ideales:{P:5,A:5,T:3}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:5, nombre:"Derecho", descripcion_breve:"Asesoramiento legal, defensa y representación judicial.", perfil:"Tribunales, asesorías, diplomacia, derechos humanos.", requerimientos_ideales:{P:4,A:4,T:3}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Sí"},
+      {id:6, nombre:"Ciencias Ambientales", descripcion_breve:"Protección del medio ambiente y gestión sostenible de recursos.", perfil:"ONG, consultorías ecológicas, políticas ambientales.", requerimientos_ideales:{P:5,A:4,T:4}, empleabilidad_latam:"Media", alerta_reemplazo_ia:"No"},
+      {id:7, nombre:"Ingeniería Civil", descripcion_breve:"Diseño y construcción de infraestructura y obras públicas.", perfil:"Construcción, transporte, ingeniería estructural.", requerimientos_ideales:{P:3,A:4,T:5}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:8, nombre:"Marketing Digital", descripcion_breve:"Estrategias online y análisis de audiencias digitales.", perfil:"Agencias de publicidad, redes sociales, e-commerce.", requerimientos_ideales:{P:5,A:4,T:3}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Sí"},
+      {id:9, nombre:"Periodismo y Comunicación", descripcion_breve:"Producción de contenido informativo y narrativo.", perfil:"Medios, RRPP, creación de contenido, comunicación política.", requerimientos_ideales:{P:4,A:4,T:3}, empleabilidad_latam:"Media", alerta_reemplazo_ia:"Parcial"},
+      {id:10, nombre:"Educación", descripcion_breve:"Formación y orientación de personas en distintos niveles educativos.", perfil:"Docencia, pedagogía, orientación vocacional.", requerimientos_ideales:{P:5,A:5,T:3}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:11, nombre:"Administración de Empresas", descripcion_breve:"Gestión y dirección estratégica de organizaciones.", perfil:"Empresas, liderazgo, planificación financiera.", requerimientos_ideales:{P:4,A:4,T:4}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:12, nombre:"Ingeniería Mecatrónica", descripcion_breve:"Integración de sistemas mecánicos, electrónicos y de software.", perfil:"Robótica, automatización industrial, control inteligente.", requerimientos_ideales:{P:3,A:3,T:5}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:13, nombre:"Diseño Gráfico", descripcion_breve:"Creación visual y comunicación mediante arte digital.", perfil:"Agencias creativas, branding, multimedia, UX/UI.", requerimientos_ideales:{P:5,A:3,T:4}, empleabilidad_latam:"Media", alerta_reemplazo_ia:"Sí"},
+      {id:14, nombre:"Biotecnología", descripcion_breve:"Aplicación de procesos biológicos para soluciones médicas y ambientales.", perfil:"Laboratorios, farmacéuticas, investigación científica.", requerimientos_ideales:{P:3,A:4,T:5}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:15, nombre:"Ingeniería Industrial", descripcion_breve:"Optimización de procesos y mejora continua.", perfil:"Manufactura, logística, calidad, productividad.", requerimientos_ideales:{P:3,A:4,T:4}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:16, nombre:"Cinematografía", descripcion_breve:"Creación audiovisual, dirección y producción cinematográfica.", perfil:"Cine, TV, plataformas digitales, animación.", requerimientos_ideales:{P:5,A:4,T:3}, empleabilidad_latam:"Media", alerta_reemplazo_ia:"Sí"},
+      {id:17, nombre:"Contaduría y Finanzas", descripcion_breve:"Gestión contable y económica empresarial.", perfil:"Empresas, auditorías, banca, inversiones.", requerimientos_ideales:{P:3,A:4,T:5}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Sí"},
+      {id:18, nombre:"Sociología", descripcion_breve:"Análisis de fenómenos sociales y culturales.", perfil:"Investigación, políticas públicas, ONG.", requerimientos_ideales:{P:5,A:4,T:3}, empleabilidad_latam:"Media", alerta_reemplazo_ia:"No"},
+      {id:19, nombre:"Turismo y Hotelería", descripcion_breve:"Gestión de experiencias turísticas y hospitalidad.", perfil:"Hoteles, agencias de viaje, eventos, marketing turístico.", requerimientos_ideales:{P:5,A:5,T:3}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"},
+      {id:20, nombre:"Ingeniería de Datos", descripcion_breve:"Gestión y análisis de grandes volúmenes de datos para la toma de decisiones.", perfil:"Empresas tecnológicas, banca, analítica predictiva.", requerimientos_ideales:{P:3,A:3,T:5}, empleabilidad_latam:"Alta", alerta_reemplazo_ia:"Parcial"}
+    ];
+
+    function mostrarPregunta() {
+      if (step < preguntas.length) {
+        const q = preguntas[step];
+        app.innerHTML = `
+          <div class="question-card animate-fade">
+            <h2 class="text-xl font-bold mb-3">${q.txt}</h2>
+            <div class="flex justify-center gap-4 mt-4">
+              ${[1,2,3,4,5].map(n=>`
+                <button class="px-4 py-2 bg-cyan-700 rounded-lg hover:bg-cyan-500" onclick="responder(${n},'${q.cat}')">${n}</button>
+              `).join('')}
             </div>
-            <button id="start-test-btn" class="w-full py-4 btn-action text-white font-extrabold text-xl rounded-xl shadow-lg transition duration-300">
-                INICIAR TRANSMISIÓN NEURAL
-            </button>
+            <p class="text-gray-400 mt-4">Pregunta ${step+1} de ${preguntas.length}</p>
+          </div>
+        `;
+      } else {
+        calcularResultado();
+      }
+    }
+
+    function responder(valor, cat) {
+      respuestas.push({cat, valor});
+      step++;
+      mostrarPregunta();
+    }
+
+    function calcularResultado() {
+      const prom = {P:0,A:0,T:0}, count={P:0,A:0,T:0};
+      respuestas.forEach(r=>{prom[r.cat]+=r.valor;count[r.cat]++;});
+      Object.keys(prom).forEach(k=>prom[k]/=count[k]);
+
+      const dist = CARRERAS_LATAM.map(c=>{
+        const d = Math.sqrt(
+          Math.pow(prom.P-c.requerimientos_ideales.P,2)+
+          Math.pow(prom.A-c.requerimientos_ideales.A,2)+
+          Math.pow(prom.T-c.requerimientos_ideales.T,2)
+        );
+        return {...c, score:(1-d/Math.sqrt(3))*100};
+      }).sort((a,b)=>b.score-a.score);
+
+      const top = dist.slice(0,4);
+      const worst = dist.slice(-3);
+
+      const principal = top[0];
+      anunciarCarrera(principal.nombre);
+
+      app.innerHTML = `
+        <div class="mt-6 flex flex-col items-center">
+          <div class="holo-chip mb-4">
+            <h3 class="text-xl neon-text font-bold">${principal.nombre}</h3>
+          </div>
+          <h2 class="text-2xl text-cyan-300 font-bold">Carrera Asignada</h2>
+          <p class="text-gray-300 mt-2">${principal.descripcion_breve}</p>
+          <p class="text-gray-400">${principal.perfil}</p>
+          <div class="mt-2 text-sm text-yellow-400">⚠️ IA: ${principal.alerta_reemplazo_ia}</div>
         </div>
 
-        <!-- Fase 1: Cuestionario Dinámico -->
-        <div id="quiz-screen" class="hidden p-6 sm:p-10 panel-futurama rounded-2xl transition-all duration-500 flex-grow">
-            <div class="mb-6">
-                <p id="progress-text" class="text-sm font-medium text-[#a5d6a7]">Progreso</p>
-                <div class="w-full bg-[#1a4340] rounded-full h-3 border border-[#4c9f70]">
-                    <div id="progress-bar" class="bg-[#d62828] h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
-                </div>
-            </div>
-            
-            <h2 id="question-text" class="text-xl sm:text-2xl font-bold neon-text mb-8 min-h-[5rem] flex items-center justify-center text-center"></h2>
-            
-            <!-- Contenedor de Opciones de Respuesta (Escala 1-5) -->
-            <div id="options-container" class="space-y-4">
-                <div class="grid grid-cols-5 gap-2 text-center text-sm font-medium">
-                    <span class="text-[#a5d6a7] text-left col-span-2 text-xs sm:text-sm">1 (DESACUERDO/BAJO)</span>
-                    <span class="col-span-1 hidden sm:block"></span>
-                    <span class="text-[#a5d6a7] text-right col-span-2 text-xs sm:text-sm">5 (ACUERDO/ALTO)</span>
-                </div>
-                <div class="flex justify-between space-x-2 sm:space-x-4">
-                    <!-- Las opciones de escala 1-5 se insertan aquí (Huellas Digitales) -->
-                </div>
-            </div>
-
-            <!-- Botón de Siguiente (Grande y Visible en Móvil) -->
-            <button id="next-question-btn" disabled class="w-full py-4 mt-10 bg-[#4c9f70] text-gray-900 font-bold text-lg rounded-xl shadow-md transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                Siguiente Transmisión >>
-            </button>
+        <div class="mt-6">
+          <h3 class="text-xl font-bold text-cyan-400 mb-2">🌟 Otras compatibles</h3>
+          ${top.slice(1).map(c=>`
+            <div class="career-card">
+              <h4 class="font-semibold text-cyan-300">${c.nombre}</h4>
+              <p class="text-gray-400">${c.descripcion_breve}</p>
+            </div>`).join('')}
         </div>
 
-        <!-- Fase 2: Pantalla de Resultados -->
-        <div id="results-screen" class="hidden p-6 sm:p-10 panel-futurama rounded-2xl transition-all duration-500">
-            <h2 class="text-3xl sm:text-4xl font-extrabold neon-text mb-6 text-center border-b-2 border-[#a5d6a7] pb-2">
-                ✅ RESULTADOS | RUTA ASIGNADA
-            </h2>
-            
-            <!-- Holo Chip (Animación 3D) - Contiene la carrera principal -->
-            <div class="mt-6 mb-8 flex flex-col items-center">
-                <div id="holo-chip" class="holo-chip mb-4">
-                    <h3 id="chip-career-name" class="text-xl neon-text font-bold text-center p-2">
-                        CARGANDO...
-                    </h3>
-                </div>
-                <p id="chip-description" class="text-gray-300 mt-2 text-center max-w-sm"></p>
-                <div id="chip-alert" class="mt-2 text-sm font-semibold text-[#d62828]"></div>
-            </div>
-
-            <!-- Puntuación del Usuario -->
-            <div id="user-profile-summary" class="bg-[#4c9f70] p-4 rounded-xl mb-8 shadow-inner border border-[#d62828] text-[#1a4340] font-bold">
-                <h3 class="text-xl font-extrabold mb-3">Tu Perfil P.A.T. (Promedios)</h3>
-                <p>P (Personalidad/Creatividad): <span id="p-score" class="font-extrabold text-[#d62828]"></span></p>
-                <p>A (Actitudes/Liderazgo): <span id="a-score" class="font-extrabold text-[#d62828]"></span></p>
-                <p>T (Aptitudes/Lógica): <span id="t-score" class="font-extrabold text-[#d62828]"></span></p>
-            </div>
-
-
-            <!-- Sección 2: Top 3 Compatibilidades Adicionales -->
-            <h3 class="text-xl font-bold text-[#4c9f70] mt-8 mb-4 border-b-2 border-[#4c9f70] pb-2">
-                🟣 TOP 3 ALTERNATIVAS VIABLES
-            </h3>
-            <div id="additional-compatible-careers" class="space-y-4">
-                <!-- Carreras #2, #3, #4 se insertan aquí -->
-            </div>
-
-            <!-- Sección 3: Alerta de Carreras Menos Compatibles (Bottom 3) -->
-            <h3 class="text-xl font-bold text-[#d62828] mt-8 mb-4 border-b-2 border-[#d62828] pb-2">
-                🔴 ALERTA NEURAL: OPCIONES MENOS COMPATIBLES (EVITAR)
-            </h3>
-            <div id="least-compatible-careers" class="space-y-4">
-                <!-- Las 3 carreras menos compatibles se insertan aquí -->
-            </div>
-            
-            <button onclick="window.location.reload()" class="w-full py-3 mt-8 btn-action text-white font-bold text-base rounded-xl">
-                Reiniciar Misión (Borrar Chip)
-            </button>
+        <div class="mt-6">
+          <h3 class="text-xl font-bold text-red-400 mb-2">🚫 Menos compatibles</h3>
+          ${worst.map(c=>`
+            <div class="career-card opacity-70">
+              <h4 class="font-semibold text-red-300">${c.nombre}</h4>
+              <p class="text-gray-500">${c.descripcion_breve}</p>
+            </div>`).join('')}
         </div>
-    </div>
+      `;
+    }
 
-    <script>
-        // ====================================================================
-        // FASE 2: BASE DE DATOS INTERNA (CARRERAS_LATAM) - 26 items (Mantenida)
-        // ====================================================================
-        const CARRERAS_LATAM = [
-            { id: 1, nombre: "Ingeniería de Software y IA", descripcion_breve: "Diseño, desarrollo y optimización de sistemas, incluyendo inteligencia artificial.", requerimientos_ideales: { P: 3, A: 4, T: 5 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Tech, Fintech, Salud Digital. Trabajos: Desarrollador Backend, Ingeniero de Machine Learning, Arquitecto Cloud." },
-            { id: 2, nombre: "Medicina y Cirugía", descripcion_breve: "Diagnóstico, tratamiento y prevención de enfermedades humanas.", requerimientos_ideales: { P: 4, A: 5, T: 3 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Hospitales, Clínicas Privadas, Investigación. Trabajos: Médico Especialista, Cirujano, Médico de Atención Primaria." },
-            { id: 3, nombre: "Marketing Digital y Estrategia", descripcion_breve: "Estrategias de venta, branding, SEO/SEM y análisis de comportamiento online.", requerimientos_ideales: { P: 5, A: 5, T: 2 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: E-commerce, Agencias de Publicidad, Startups. Trabajos: Social Media Manager, Analista de CRO, Director de Marketing." },
-            { id: 4, nombre: "Ingeniería Civil y Estructuras", descripcion_breve: "Diseño, planificación y gestión de infraestructuras y obras civiles.", requerimientos_ideales: { P: 4, A: 3, T: 4 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Construcción, Consultoría de Ingeniería, Obras Públicas. Trabajos: Director de Obra, Ingeniero Estructural, Gerente de Proyectos." },
-            { id: 5, nombre: "Derecho, Tecnología y Propiedad Intelectual", descripcion_breve: "Asesoramiento legal en temas de tecnología, datos, y regulaciones corporativas.", requerimientos_ideales: { P: 5, A: 4, T: 3 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Legal Tech, Empresas de Software, Bufetes especializados. Trabajos: Abogado de Datos, Consultor de Compliance, Especialista en IP." },
-            { id: 6, nombre: "Psicología Organizacional y RRHH", descripcion_breve: "Gestión del talento humano, bienestar laboral y desarrollo organizacional.", requerimientos_ideales: { P: 3, A: 5, T: 2 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Grandes Corporaciones, Consultoría de RRHH. Trabajos: Talent Acquisition Specialist, Gerente de Desarrollo Organizacional, Coach Ejecutivo." },
-            { id: 7, nombre: "Administración de Negocios y Liderazgo", descripcion_breve: "Gestión de recursos, planeación estratégica y dirección de organizaciones.", requerimientos_ideales: { P: 4, A: 4, T: 3 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Banca, Retail, Servicios. Trabajos: Gerente de Área, Consultor de Estrategia, Emprendedor." },
-            { id: 8, nombre: "Contaduría Pública y Auditoría", descripcion_breve: "Registro, análisis, fiscalización de transacciones económicas y presentación de informes.", requerimientos_ideales: { P: 5, A: 3, T: 4 }, empleabilidad_latam: 'Baja', alerta_reemplazo_ia: 'Sí', perfil_profesional: "Sectores: Firmas de Auditoría, Empresas, Gobierno. Trabajos: Auditor Junior, Contador General, Especialista en Impuestos (Tareas de rutina son sensibles a IA)." },
-            { id: 9, nombre: "Diseño UX/UI y Experiencia del Usuario", descripcion_breve: "Creación de interfaces digitales funcionales, atractivas y fáciles de usar.", requerimientos_ideales: { P: 2, A: 4, T: 2 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Startups, Agencias de Diseño, Empresas de Software. Trabajos: UX Researcher, Diseñador de Interfaz, Service Designer." },
-            { id: 10, nombre: "Educación Especial y Tecnología", descripcion_breve: "Formación de estudiantes con necesidades especiales y aplicación de herramientas tecnológicas.", requerimientos_ideales: { P: 3, A: 5, T: 2 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Escuelas Inclusivas, ONG, Desarrollo de EdTech. Trabajos: Maestro de apoyo, Asesor de Integración Educativa." },
-            { id: 11, nombre: "Ingeniería Ambiental y Sostenibilidad", descripcion_breve: "Gestión y mitigación de problemas ambientales, energías renovables.", requerimientos_ideales: { P: 4, A: 3, T: 4 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Energía, Minería, Consultoría Ambiental. Trabajos: Consultor ESG, Gerente de Sostenibilidad, Ingeniero de Tratamiento de Aguas." },
-            { id: 12, nombre: "Comunicación Social y Storytelling", descripcion_breve: "Creación de narrativas, gestión de crisis y comunicación estratégica.", requerimientos_ideales: { P: 2, A: 4, T: 3 }, empleabilidad_latam: 'Baja', alerta_reemplazo_ia: 'Sí', perfil_profesional: "Sectores: Medios Tradicionales, Relaciones Públicas (Las tareas de redacción básica son vulnerables a IA)." },
-            { id: 13, nombre: "Arquitectura Bioclimática y Paisajismo", descripcion_breve: "Diseño de edificaciones que optimizan recursos naturales y se integran al entorno.", requerimientos_ideales: { P: 3, A: 3, T: 4 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Diseño Urbano, Desarrollo Inmobiliario. Trabajos: Arquitecto de Paisaje, Consultor de Eficiencia Energética." },
-            { id: 14, nombre: "Relaciones Internacionales y Diplomacia", descripcion_breve: "Análisis de política global, negociación y cooperación internacional.", requerimientos_ideales: { P: 5, A: 4, T: 2 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Embajadas, ONG, Comercio Exterior. Trabajos: Analista Político, Negociador, Funcionario Internacional." },
-            { id: 15, nombre: "Enfermería y Cuidado Crítico", descripcion_breve: "Atención directa, especializada y humana en áreas de alta complejidad.", requerimientos_ideales: { P: 4, A: 5, T: 3 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Unidades de Cuidados Intensivos (UCI), Emergencias. Trabajos: Enfermero Jefe, Coordinador de Área Clínica." },
-            { id: 16, nombre: "Ingeniería Industrial y Optimización", descripcion_breve: "Optimización de procesos, gestión de cadenas de suministro y eficiencia operativa.", requerimientos_ideales: { P: 4, A: 4, T: 4 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Manufactura, Logística, Consultoría de Procesos. Trabajos: Gerente de Operaciones, Analista de Lean Manufacturing." },
-            { id: 17, nombre: "Finanzas Cuantitativas y Riesgo", descripcion_breve: "Modelado matemático para la toma de decisiones de inversión y gestión de riesgos.", requerimientos_ideales: { P: 5, A: 3, T: 5 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Banca de Inversión, Fondos de Cobertura. Trabajos: Quant Analyst, Gerente de Riesgos Financieros." },
-            { id: 18, nombre: "Nutrición, Biotecnología y Alimentos", descripcion_breve: "Investigación y desarrollo de alimentos funcionales y terapias nutricionales.", requerimientos_ideales: { P: 3, A: 4, T: 2 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Industria Alimentaria, Hospitales, Investigación. Trabajos: Bromatólogo, Nutricionista Clínico, Asesor Deportivo." },
-            { id: 19, nombre: "Biotecnología y Bioinformática", descripcion_breve: "Aplicación de la tecnología de la información al manejo y análisis de datos biológicos.", requerimientos_ideales: { P: 3, A: 4, T: 5 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Farmacéutica, Laboratorios Genéticos, Academia. Trabajos: Científico de Datos Biológicos, Investigador Molecular." },
-            { id: 20, nombre: "Diseño Industrial y Fabricación Digital", descripcion_breve: "Conceptualización de productos y uso de impresión 3D/CNC para prototipos avanzados.", requerimientos_ideales: { P: 2, A: 4, T: 3 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Automotriz, Tecnología de Consumo. Trabajos: Ingeniero de Prototipado, Diseñador de Producto." },
-            { id: 21, nombre: "Comercio Internacional y Aduanas", descripcion_breve: "Estrategias de exportación/importación y gestión de cadenas de suministro globales.", requerimientos_ideales: { P: 4, A: 4, T: 3 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Logística, Puertos y Aduanas, Empresas Multinacionales. Trabajos: Analista de Mercado, Gerente de Supply Chain." },
-            { id: 22, nombre: "Fisioterapia y Rehabilitación", descripcion_breve: "Tratamiento y prevención de lesiones, enfocado en el movimiento humano.", requerimientos_ideales: { P: 3, A: 5, T: 2 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Centros de Rehabilitación, Deportes, Hospitales. Trabajos: Fisioterapeuta Deportivo, Terapeuta Ocupacional." },
-            { id: 23, nombre: "Gastronomía y Administración de Servicios", descripcion_breve: "Creación culinaria con enfoque en la gestión y rentabilidad de restaurantes y hoteles.", requerimientos_ideales: { P: 4, A: 4, T: 2 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'No', perfil_profesional: "Sectores: Hotelería, Restaurantes de Alta Cocina, Consultoría Alimentaria. Trabajos: Chef Ejecutivo, Gerente de Alimentos y Bebidas." },
-            { id: 24, nombre: "Ingeniería Biomédica", descripcion_breve: "Diseño y mantenimiento de equipos médicos, integración de la tecnología en la salud.", requerimientos_ideales: { P: 3, A: 4, T: 5 }, empleabilidad_latam: 'Alta', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Fabricantes de Dispositivos Médicos, Hospitales. Trabajos: Especialista en Equipos, Ingeniero Clínico." },
-            { id: 25, nombre: "Ciencias Políticas y Análisis de Datos", descripcion_breve: "Estudio de sistemas de gobierno, políticas públicas y uso de big data para la toma de decisiones.", requerimientos_ideales: { P: 5, A: 3, T: 4 }, empleabilidad_latam: 'Media', alerta_reemplazo_ia: 'Parcial', perfil_profesional: "Sectores: Gobierno, Think Tanks, Campañas Electorales. Trabajos: Analista de Políticas Públicas, Asesor Legislativo." },
-            { id: 26, nombre: "Traducción e Interpretación (Especializada)", descripcion_breve: "Servicios de traducción en áreas técnicas (legal, médica, IT) y simultánea.", requerimientos_ideales: { P: 3, A: 4, T: 3 }, empleabilidad_latam: 'Baja', alerta_reemplazo_ia: 'Sí', perfil_profesional: "Sectores: Organismos Internacionales, Empresas de Localización. Trabajos: Traductor Jurado, Intérprete (Traducción general y simple es altamente automatizable)." }
-        ];
+    function anunciarCarrera(nombre) {
+      const mensaje = new SpeechSynthesisUtterance(`Carrera asignada: ${nombre}`);
+      mensaje.lang = "es-ES";
+      mensaje.rate = 1.1;
+      mensaje.pitch = 1.1;
+      window.speechSynthesis.speak(mensaje);
+    }
 
-        // ====================================================================
-        // CUESTIONARIO (Mantenido)
-        // ====================================================================
-        const CUESTIONARIO = [
-            { category: 'P', text: "Me siento cómodo interactuando con muchas personas desconocidas en eventos sociales." },
-            { category: 'P', text: "Disfruto de actividades que requieren una alta dosis de creatividad e imaginación." },
-            { category: 'P', text: "Soy una persona muy organizada y me gusta seguir planes detallados." },
-            { category: 'P', text: "Prefiero la estabilidad laboral sobre las oportunidades que implican riesgo y cambio constante." },
-            { category: 'P', text: "Me considero una persona curiosa, siempre buscando aprender algo nuevo por mi cuenta." },
-            { category: 'A', text: "Me ofrezco activamente para liderar equipos o proyectos en el colegio." },
-            { category: 'A', text: "Cuando enfrento un fracaso o error, me recupero rápidamente y busco soluciones." },
-            { category: 'A', text: "Valoro más la capacidad de colaborar que la de competir con mis compañeros." },
-            { category: 'A', text: "Soy proactivo: tomo la iniciativa para resolver problemas sin esperar instrucciones." },
-            { category: 'A', text: "Me resulta fácil adaptarme a entornos y tareas completamente nuevos." },
-            { category: 'T', text: "Resuelvo problemas matemáticos y lógicos con rapidez y disfrute." },
-            { category: 'T', text: "Tengo buena habilidad para escribir ensayos, informes y expresarme claramente." },
-            { category: 'T', text: "Me es sencillo visualizar mentalmente cómo se vería un objeto desde diferentes ángulos (visión espacial)." },
-            { category: 'T', text: "Me gusta trabajar con tablas de datos y encontrar patrones o errores en grandes conjuntos de números." },
-            { category: 'T', text: "Disfruto la lectura de textos complejos y la extracción de conceptos abstractos." }
-        ];
-        
-        // Variables de estado y referencias del DOM
-        let currentQuestionIndex = 0;
-        let userAnswers = [];
-        let selectedAnswer = null;
-
-        const welcomeScreen = document.getElementById('welcome-screen');
-        const quizScreen = document.getElementById('quiz-screen');
-        const resultsScreen = document.getElementById('results-screen');
-        const startTestBtn = document.getElementById('start-test-btn');
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = quizScreen.querySelector('.flex.justify-between');
-        const nextQuestionBtn = document.getElementById('next-question-btn');
-        const progressBar = document.getElementById('progress-bar');
-        const progressText = document.getElementById('progress-text');
-        
-        // Inicialización y Event Listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            startTestBtn.addEventListener('click', startQuiz);
-            nextQuestionBtn.addEventListener('click', nextQuestion);
-            renderScaleOptions();
-        });
-
-        function startQuiz() {
-            welcomeScreen.classList.add('hidden');
-            quizScreen.classList.replace('hidden', 'flex');
-            renderQuestion();
-        }
-
-        // Crea los botones de escala 1-5
-        function renderScaleOptions() {
-            for (let i = 1; i <= 5; i++) {
-                const input = document.createElement('input');
-                input.type = 'radio';
-                input.name = 'answer-scale';
-                input.id = `scale-${i}`;
-                input.value = i;
-                input.classList.add('hidden', 'scale-option');
-
-                const label = document.createElement('label');
-                label.htmlFor = `scale-${i}`;
-                label.textContent = i;
-                label.classList.add(
-                    'flex-1', 'py-4', 'sm:py-6', 'rounded-full', 'finger-print', 'font-extrabold',
-                    'flex', 'items-center', 'justify-center', 'text-xl'
-                );
-                
-                label.addEventListener('click', () => {
-                    selectedAnswer = i;
-                    nextQuestionBtn.disabled = false;
-                    // Cambio de color al habilitar el botón
-                    nextQuestionBtn.classList.replace('bg-[#4c9f70]', 'btn-action');
-                    nextQuestionBtn.classList.replace('text-gray-900', 'text-white');
-                });
-                optionsContainer.appendChild(input);
-                optionsContainer.appendChild(label);
-            }
-        }
-
-        function renderQuestion() {
-            if (currentQuestionIndex < CUESTIONARIO.length) {
-                const q = CUESTIONARIO[currentQuestionIndex];
-                questionText.textContent = q.text;
-                
-                selectedAnswer = null;
-                nextQuestionBtn.disabled = true;
-                // Deshabilitado: color verde medio
-                nextQuestionBtn.classList.replace('btn-action', 'bg-[#4c9f70]');
-                nextQuestionBtn.classList.replace('text-white', 'text-gray-900');
-
-                document.querySelectorAll('input[name="answer-scale"]').forEach(radio => radio.checked = false);
-
-                const percentage = ((currentQuestionIndex) / CUESTIONARIO.length) * 100;
-                progressBar.style.width = `${percentage}%`;
-                progressText.textContent = `Transmisión ${currentQuestionIndex + 1} de ${CUESTIONARIO.length}`;
-
-            } else {
-                progressBar.style.width = `100%`;
-                progressText.textContent = `Transmisión Finalizada`;
-                calculateResults();
-            }
-        }
-
-        function nextQuestion() {
-            if (selectedAnswer !== null) {
-                const currentQ = CUESTIONARIO[currentQuestionIndex];
-                userAnswers.push({ category: currentQ.category, score: selectedAnswer });
-                currentQuestionIndex++;
-                renderQuestion();
-            }
-        }
-
-        // ====================================================================
-        // LÓGICA DE RESULTADOS Y FUNCIONALIDAD TTS
-        // ====================================================================
-
-        function anunciarCarrera(nombre) {
-            if (typeof SpeechSynthesisUtterance !== 'undefined' && window.speechSynthesis) {
-                const mensaje = new SpeechSynthesisUtterance(`Ruta crítica asignada: ${nombre}. Analizando alternativas.`);
-                mensaje.lang = "es-ES";
-                mensaje.rate = 1.1; // Velocidad ligeramente más rápida
-                mensaje.pitch = 1.1; // Tono ligeramente más alto (voz de IA)
-                window.speechSynthesis.speak(mensaje);
-            } else {
-                console.warn("TTS no soportado en este navegador.");
-            }
-        }
-
-        function calculateResults() {
-            const totals = { P: 0, A: 0, T: 0 };
-            const counts = { P: 0, A: 0, T: 0 };
-
-            userAnswers.forEach(answer => {
-                totals[answer.category] += answer.score;
-                counts[answer.category]++;
-            });
-
-            const userProfile = {
-                P: counts.P > 0 ? totals.P / counts.P : 0,
-                A: counts.A > 0 ? totals.A / counts.A : 0,
-                T: counts.T > 0 ? totals.T / counts.T : 0,
-            };
-            
-            let matchingResults = CARRERAS_LATAM.map(career => {
-                const ideal = career.requerimientos_ideales;
-                
-                // Cálculo de Distancia (Similar a la Distancia Euclidiana, para compatibilidad)
-                const distance = Math.sqrt(
-                    Math.pow(userProfile.P - ideal.P, 2) +
-                    Math.pow(userProfile.A - ideal.A, 2) +
-                    Math.pow(userProfile.T - ideal.T, 2)
-                );
-
-                const maxDistance = Math.sqrt(Math.pow(4, 2) * 3); 
-                const normalizedDistance = distance / maxDistance;
-                // Score de Match, 100% es 0 distancia
-                const matchPercentage = Math.round((1 - normalizedDistance) * 100);
-
-                return {
-                    ...career,
-                    distance: distance,
-                    matchPercentage: matchPercentage
-                };
-            });
-
-            matchingResults.sort((a, b) => b.matchPercentage - a.matchPercentage);
-            
-            const mostCompatible = matchingResults[0]; 
-            const additionalCompatible = matchingResults.slice(1, 4); 
-            const leastCompatible = matchingResults.slice(-3).sort((a, b) => a.matchPercentage - b.matchPercentage); 
-            
-            renderResults(userProfile, mostCompatible, additionalCompatible, leastCompatible);
-        }
-
-        function renderResults(profile, mostCompatible, additionalCompatible, leastCompatible) {
-            quizScreen.classList.replace('flex', 'hidden');
-            resultsScreen.classList.replace('hidden', 'block');
-
-            // Llamada al TTS para anunciar el resultado
-            anunciarCarrera(mostCompatible.nombre);
-
-            // Mostrar el perfil del usuario
-            document.getElementById('p-score').textContent = profile.P.toFixed(1);
-            document.getElementById('a-score').textContent = profile.A.toFixed(1);
-            document.getElementById('t-score').textContent = profile.T.toFixed(1);
-            
-            // 1. Renderizar la Opción Crítica en el Holo-Chip
-            document.getElementById('chip-career-name').textContent = mostCompatible.nombre;
-            document.getElementById('chip-description').textContent = mostCompatible.descripcion_breve;
-            
-            const alertText = mostCompatible.alerta_reemplazo_ia === 'Sí' ? 
-                              '⚠️ ALERTA IA: Riesgo Alto de Automatización' : 
-                              (mostCompatible.alerta_reemplazo_ia === 'Parcial' ? 
-                                '⚠️ RIESGO IA: Automatización Parcial' : 
-                                '🟢 ALERTA IA: Riesgo Bajo/Nulo');
-            const alertColor = mostCompatible.alerta_reemplazo_ia === 'Sí' ? 'text-[#d62828]' : 'text-[#a5d6a7]';
-            document.getElementById('chip-alert').className = `mt-2 text-sm font-semibold ${alertColor}`;
-            document.getElementById('chip-alert').textContent = alertText;
-
-
-            // Limpiar contenedores
-            document.getElementById('additional-compatible-careers').innerHTML = '';
-            document.getElementById('least-compatible-careers').innerHTML = '';
-
-
-            // Función de ayuda para crear la tarjeta de carrera secundaria
-            const createCareerCard = (career, isAlert = false) => {
-                const empColor = career.empleabilidad_latam === 'Alta' ? 'text-[#a5d6a7]' : (career.empleabilidad_latam === 'Media' ? 'text-yellow-400' : 'text-[#d62828]');
-                const titleColor = isAlert ? 'text-[#d62828]' : 'text-[#4c9f70]';
-                const borderColor = isAlert ? 'border-[#d62828]' : 'border-[#4c9f70]';
-                const bgColor = isAlert ? 'bg-[#1a4340] opacity-90' : 'bg-[#1a4340]';
-
-                return `
-                    <div class="career-card ${bgColor} ${borderColor} border-2">
-                        <div class="flex justify-between items-start mb-1">
-                            <h4 class="font-extrabold ${titleColor} text-lg leading-tight">${career.nombre}</h4>
-                            <span class="text-xl font-extrabold text-[#1a4340] bg-[#a5d6a7] px-3 py-0.5 rounded-full ml-2 flex-shrink-0">
-                                ${career.matchPercentage}%
-                            </span>
-                        </div>
-                        
-                        <p class="text-gray-300 text-sm mb-2">${career.descripcion_breve}</p>
-                        
-                        <div class="flex justify-between text-xs sm:text-sm font-semibold mt-2 pt-2 border-t border-gray-700">
-                            <span class="text-gray-400">Empleabilidad: <span class="${empColor}">${career.empleabilidad_latam}</span></span>
-                            <span class="text-gray-400">P/A/T Ideal: ${career.requerimientos_ideales.P}/${career.requerimientos_ideales.A}/${career.requerimientos_ideales.T}</span>
-                        </div>
-                    </div>
-                `;
-            };
-
-            // 2. Renderizar las 3 Adicionales
-            additionalCompatible.forEach(career => {
-                document.getElementById('additional-compatible-careers').innerHTML += createCareerCard(career, false);
-            });
-            
-            // 3. Renderizar las 3 Menos Compatibles (Alerta)
-            leastCompatible.forEach(career => {
-                document.getElementById('least-compatible-careers').innerHTML += createCareerCard(career, true);
-            });
-        }
-    </script>
+    mostrarPregunta();
+  </script>
 </body>
 </html>
